@@ -1,5 +1,5 @@
 import { useState, type FunctionComponent } from 'react';
-
+// Home Page Component
 export const Home: FunctionComponent = () => {
   const [count, setCount] = useState(0);
   const update = () => {

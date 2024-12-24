@@ -1,4 +1,4 @@
-import { useState, type FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
 import { Routes, Route } from 'react-router';
 import { Home } from './Home';
 import { NotFound } from './NotFound';

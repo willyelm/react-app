@@ -2,9 +2,9 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { context } from 'esbuild';
 import { serverConfig, clientConfig } from './config.js';
-
+// Working dir
 const workspace = process.cwd();
-
+// Dev process
 async function dev() {
   // Build server in watch mode
   const serverContext = await context(serverConfig);
@@ -27,5 +27,5 @@ async function dev() {
     process.exit(0);
   });
 }
-
+// Start the dev process
 dev();
