@@ -9,11 +9,12 @@ const port = 3000; // Port to listen
 const workspace = process.cwd(); // workspace
 // Serve static files like js bundles and css files
 app.use('/static', express.static(path.join(workspace, 'dist', 'static')));
-// Server files in public folder 
+// Server files from the /public folder
 app.use(express.static(path.join(workspace, 'public')));
 // Fallback to render the SSR react app
 app.use((request: Request, response: Response) => {
   // React SSR rendering as a stream
+  // `renderToPipableStream` allows us to start sending HTML to the client as soon as the initial chunks are ready.
   const { pipe } = renderToPipeableStream(
     <html lang="en">
       <head>

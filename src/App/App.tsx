@@ -2,7 +2,7 @@ import { type FunctionComponent } from 'react';
 import { Routes, Route } from 'react-router';
 import { Home } from './Home';
 import { NotFound } from './NotFound';
-
+// App Component
 export const App: FunctionComponent = () => {
   return <Routes>
     <Route path="/">
