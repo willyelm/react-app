@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { context } from 'esbuild';
 import { serverConfig, clientConfig } from './config.js';
+import reloadPlugin from './reloadPlugin.js';
 // Working dir
 const workspace = process.cwd();
 // Dev process
@@ -15,6 +16,7 @@ async function dev() {
   });
   serverContext.watch();
   // Build client in watch mode
+  clientConfig.plugins.push(reloadPlugin());
   const clientContext = await context({
     ...clientConfig,
     define: {

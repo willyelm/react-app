@@ -28,6 +28,8 @@ export const clientConfig = {
   bundle: true,
   platform: 'browser',
   format: 'esm',
+  target: 'esnext',
+  jsx: 'automatic',
   sourcemap: 'external',
   logLevel: 'error',
   tsconfig: path.join(workspace, 'tsconfig.json'),
@@ -36,6 +38,7 @@ export const clientConfig = {
     style: path.join(workspace, 'src', 'style.css')  // Stylesheet
   },
   outdir: path.join(workspace, 'dist', 'static'),    // Served as /static by express
+  conditions: ['import'],
   plugins: [
     svgPlugin(),
     postcssPlugin({

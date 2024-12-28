@@ -13,11 +13,11 @@ export const Home: FunctionComponent = () => {
     <meta name='description' content='This is my home page'/>
     <section className='flex flex-col w-72 mx-auto mt-32 border-2 border-white p-8'>
       <h1 className='text-4xl'> Home Page </h1>
-      <p > Counter: {count} </p>
+      <p> Counter: {count} </p>
       <button 
         className='mt-4 px-4 py-2 bg-white text-black'
         onClick={() => update()}>
-          Update
+          Update Counter
       </button>
     </section>
     
