@@ -27,7 +27,7 @@ app.use((request: Request, response: Response) => {
       </head>
       <body>
         <base href="/" />
-        <div id="app" className='flex'>
+        <div id="app">
           <StaticRouter location={request.url}>
             <App />
           </StaticRouter>

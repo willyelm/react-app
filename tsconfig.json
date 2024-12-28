@@ -20,7 +20,8 @@
   },
   "include": [
     "src",
-    "scripts/testSetup.ts"
+    "scripts/testSetup.ts",
+    "env.d.ts"
   ],
   "exclude": [
     "node_modules"
