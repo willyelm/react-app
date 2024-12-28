@@ -5,12 +5,18 @@ async function bundle() {
   // Build server with minify enabled for production
   await build({
     ...serverConfig,
-    minify: true
+    minify: true,
+    define: {
+      'process.env.NODE_ENV': `"production"`
+    }
   });
   // Build client with minify enabled for production
   await build({
     ...clientConfig,
-    minify: true
+    minify: true,
+    define: {
+      'process.env.NODE_ENV': `"production"`
+    }
   });
 }
 // Start the build process

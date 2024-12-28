@@ -7,10 +7,20 @@ const workspace = process.cwd();
 // Dev process
 async function dev() {
   // Build server in watch mode
-  const serverContext = await context(serverConfig);
+  const serverContext = await context({
+    ...serverConfig,
+    define: {
+      'process.env.NODE_ENV': `"development"`
+    }
+  });
   serverContext.watch();
   // Build client in watch mode
-  const clientContext = await context(clientConfig);
+  const clientContext = await context({
+    ...clientConfig,
+    define: {
+      'process.env.NODE_ENV': `"development"`
+    }
+  });
   clientContext.watch();
   // Run server
   const childProcess = spawn('node', [

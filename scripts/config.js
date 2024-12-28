@@ -1,4 +1,7 @@
 import path from 'node:path';
+import postcssPlugin from './postcssPlugin.js';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 // Working dir
 const workspace = process.cwd();
 // Server bundle configuration
@@ -29,4 +32,12 @@ export const clientConfig = {
     style: path.join(workspace, 'src', 'style.css')  // Stylesheet
   },
   outdir: path.join(workspace, 'dist', 'static'),    // Served as /static by express
+  plugins: [
+    postcssPlugin({
+      plugins: [
+        tailwindcss(),
+        autoprefixer
+      ]
+    })
+  ]
 };
