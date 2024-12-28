@@ -1,0 +1,15 @@
+{
+  "testMatch": [
+    "<rootDir>/**/?(*.)+(test).(ts|tsx)"
+  ],
+  "transform": {
+    "^.+\\.tsx$": "<rootDir>/scripts/testTransformer.js"
+  },
+  "setupFilesAfterEnv": [
+    "<rootDir>/scripts/testSetup.ts"
+  ],
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "transformIgnorePatterns": ["/node_modules/"],
+  "testEnvironment": "jsdom"
+}

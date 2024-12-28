@@ -19,7 +19,8 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "scripts/testSetup.ts"
   ],
   "exclude": [
     "node_modules"
