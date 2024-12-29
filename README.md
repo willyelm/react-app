@@ -9,6 +9,10 @@ This project leverages the latest features of react@19, react-router-dom@7, and 
 - **express**: Node.js simple server for static and REST APIs.
 - **esbuild**: Transile TypeScript and bundle JS, CSS, SVG, and other files.
 - **typescript**: Adding Typing to our source code.
+- **jest**: Unit testing.
+- **postcss**: Preprocess css files.
+- **tailwindcss**: css utilities.
+- **svgo**: converting svg to JSX component modules.
 
 ## Project Structure
 
@@ -23,6 +27,7 @@ react-app/             # This will be our workspace directory.
     - App/             # Our components will be here.
       - App.tsx        # The main application with browser routing.
       - Home.tsx.      # Our default page component.
+      - Home.test.tsx. # Unit Testing file.
       - NotFound.tsx   # Fallback request to not found.
     - index.tsx        # Hydrate our pre-rendered client app.
     - main.tsx         # Server app with SSR components.
@@ -49,7 +54,10 @@ npm run build
 npm start
 ```
 
+## Testing
+
+To run jest test files:
 
 ```bash
-node --experimental-vm-modules node_modules/jest/bin/jest.js
+npm run test
 ```
