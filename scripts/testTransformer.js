@@ -13,9 +13,11 @@ export default {
           compilerOptions: {
             jsx: 'react-jsx'
           },
-        },
+        }
       });
       return { code: result.code, map: result.map };
+    } else {
+      console.log('File not supported', filename);
     }
     return src;
   },

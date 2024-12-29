@@ -52,13 +52,11 @@ export const svgPlugin = () => ({
         ],
       });
       // Wrap the optimized SVG in a React component
-      const jsxComponent = `
-        export default (props) => (
+      const jsxComponent = `export default (props) => (
           ${optimizedSvg.replace(/<svg (.*?)>/, (match, attrs) => {
             return `<svg ${attrs} {...props}>`;
           })}
-        );
-      `;
+        );`;
       return {
         contents: jsxComponent,
         loader: 'jsx'

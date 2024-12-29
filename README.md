@@ -48,3 +48,8 @@ To bundle and run this project in production mode:
 npm run build
 npm start
 ```
+
+
+```bash
+node --experimental-vm-modules node_modules/jest/bin/jest.js
+```

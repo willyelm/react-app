@@ -3,13 +3,18 @@
     "<rootDir>/**/?(*.)+(test).(ts|tsx)"
   ],
   "transform": {
-    "^.+\\.tsx$": "<rootDir>/scripts/testTransformer.js"
+    "^.+\\.(ts|tsx)$": "<rootDir>/scripts/testTransformer.js"
   },
   "setupFilesAfterEnv": [
     "<rootDir>/scripts/testSetup.ts"
   ],
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-  "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node", "svg"],
+
+  "moduleNameMapper": {
+    "\\.svg$": "<rootDir>/scripts/testSVGMock.js"
+  },
+
+  "extensionsToTreatAsEsm": [".ts", ".tsx", ".svg"],
   "transformIgnorePatterns": ["/node_modules/"],
   "testEnvironment": "jsdom"
 }
