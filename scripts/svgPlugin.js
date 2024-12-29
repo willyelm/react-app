@@ -1,6 +1,5 @@
 import { readFile } from 'node:fs/promises';
 import { optimize } from 'svgo';
-
 /**
  * An esbuild plugin to transform SVG into React-compatible JSX.
  */

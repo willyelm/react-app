@@ -9,27 +9,41 @@ export const Home: FunctionComponent = () => {
   };
   return <>
     {/* React will locate the next <title> and <meta> elements and place them in the <head> */}
-    <title> App | Home </title>
+    <title> App </title>
     <meta name='description' content='This is my home page'/>
-    <section className='flex flex-col w-96 mx-auto mt-32 border border-gray-600'>
-      <h1 className='text-4xl px-8 py-4 border-b border-gray-600'> Home Page </h1>
-      <div className='flex items-center justify-center'>
-        <div className='flex-auto px-8 py-4'>
-          Counter: <span className='text-gray-500'>{count}</span>
+    <div className='flex flex-col w-full min-h-screen divide-y divide-gray-700'>
+      <div className="flex divide-x divide-gray-700">
+        <div className='w-32'></div>
+        <div className='flex-auto p-8'>
+          <h1 className='text-4xl'> App </h1>
         </div>
-        <div className='p-4 border-l border-gray-600'>
+        <div className='w-32'></div>
+      </div>
+      <div className="flex divide-x divide-gray-700">
+        <div className='w-32'></div>
+        <div className='flex-auto p-8'>
+          <p className='mb-4'>
+          Counter: {count}
+          </p>
           <button 
-            className='h-full px-4 py-2 bg-white text-black'
+            className='px-4 py-2 bg-white text-black'
             onClick={() => update()}>
               Increase
           </button>
         </div>
+        <div className='w-32'></div>
       </div>
-    </section>
-    <footer className='flex items-center justify-center space-x-4 my-8'>
-      <span className='italic text-gray-500'>Built with </span>
-      <React width={16} height={16}/>
-      <ESbuild width={16} height={16}/>
-    </footer>
+      <div className="flex-auto flex divide-x divide-gray-700 min-h-16">
+        <div className='w-32'></div>
+        <div className='flex-auto'>
+          <footer className='flex items-center space-x-4 px-8 py-4'>
+            <span className='italic text-gray-500'>Built with </span>
+            <React width={16} height={16}/>
+            <ESbuild width={16} height={16}/>
+          </footer>
+        </div>
+        <div className='w-32'></div>
+      </div>
+    </div>
   </>;
 }
