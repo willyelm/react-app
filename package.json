@@ -1,5 +1,6 @@
 {
   "name": "react-app",
+  "description": "A React app with SSR and CSR started with esbuild",
   "type": "module",
   "author": "Will Medina <williams.medinaa@gmail.com>",
   "devDependencies": {

@@ -22,7 +22,6 @@ export const serverConfig = {
     svg()
   ]
 };
-
 // Client bundle configuration
 export const clientConfig = {
   bundle: true,
@@ -42,7 +41,6 @@ export const clientConfig = {
     style: path.join(workspace, 'src', 'style.css')  // Stylesheet
   },
   outdir: path.join(workspace, 'dist', 'static'),    // Served as /static by express
-  conditions: ['import'],
   plugins: [
     svg(),
     postcss({
