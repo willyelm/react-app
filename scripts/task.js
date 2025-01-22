@@ -57,7 +57,9 @@ const tasks = {
     const childProcess = spawn('node', [
       '--watch',
       path.join(workspace, 'dist', 'main.js')
-    ]);
+    ], {
+      stdio: 'inherit'
+    });
     // Kill child process on program interruption
     process.on('SIGINT', () => {
       if (childProcess) {

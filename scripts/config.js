@@ -26,12 +26,16 @@ export const serverConfig = {
 // Client bundle configuration
 export const clientConfig = {
   bundle: true,
+  treeShaking: true,
   platform: 'browser',
   format: 'esm',
   target: 'esnext',
   jsx: 'automatic',
   sourcemap: 'external',
   logLevel: 'error',
+  logOverride: {
+    'unsupported-dynamic-import': 'silent',
+  },
   tsconfig: path.join(workspace, 'tsconfig.json'),
   entryPoints: {
     index: path.join(workspace, 'src', 'index.tsx'), // Client react app

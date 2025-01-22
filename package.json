@@ -26,9 +26,10 @@
     "react-router-dom": "^7.1.3"
   },
   "scripts": {
-    "test": "node scripts/test.js",
-    "build": "node scripts/build",
-    "dev": "node scripts/dev",
+    "test": "node scripts/task test",
+    "build": "node scripts/task build",
+    "dev": "node scripts/task dev",
+    "prestart": "npm run build",
     "start": "node dist/main.js"
   }
 }
