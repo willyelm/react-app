@@ -33,7 +33,7 @@ export const clientConfig = {
   sourcemap: 'external',
   logLevel: 'error',
   logOverride: {
-    'unsupported-dynamic-import': 'silent',
+    'unsupported-dynamic-import': 'silent'
   },
   tsconfig: path.join(workspace, 'tsconfig.json'),
   entryPoints: {

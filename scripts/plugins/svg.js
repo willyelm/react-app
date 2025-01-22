@@ -3,7 +3,6 @@ import { optimize } from 'svgo';
 /**
  * An esbuild plugin to transform SVG into React-compatible JSX.
  */
-
 function toCamelCase(kebabStr) {
   return kebabStr.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
@@ -34,10 +33,12 @@ export const svgPlugin = () => ({
                   enter: (node) => {
                     if (node.attributes) {
                       Object.keys(node.attributes).forEach((key) => {
+                        // Map attributes like `class` to `className`
                         if (attrMap.hasOwnProperty(key)) {
                           node.attributes[attrMap[key]] = node.attributes[key];
                           delete node.attributes[key];
                         }
+                        // Convert attributes like `fill-rule` to `fillRule`
                         if (key.includes('-')) {
                           const newKey = toCamelCase(key);
                           node.attributes[newKey] = node.attributes[key];
