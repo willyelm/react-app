@@ -3,14 +3,17 @@ import express, { type Request, type Response } from 'express';
 import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { App } from './App/App';
+import { APIRouter } from './API/API';
 
 const app = express(); // Create Express App
 const port = 3000; // Port to listen
 const workspace = process.cwd(); // workspace
-// Serve static files like js bundles and css files
-app.use('/static', express.static(path.join(workspace, 'dist', 'static')));
 // Server files from the /public folder
 app.use(express.static(path.join(workspace, 'public')));
+// API routes
+app.use('/api', APIRouter); 
+// Serve static files like js bundles and css files
+app.use('/static', express.static(path.join(workspace, 'dist', 'static')));
 // Fallback to render the SSR react app
 app.use((request: Request, response: Response) => {
   // React SSR rendering as a stream

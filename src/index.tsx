@@ -8,9 +8,3 @@ hydrateRoot(
     <App />
   </BrowserRouter>
 );
-// Handle HMR
-// if (import.meta.hot) {
-//   import.meta.hot.accept(() => {
-//     console.log('[HMR] React components updated!');
-//   });
-// }

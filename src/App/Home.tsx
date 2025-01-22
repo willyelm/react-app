@@ -8,7 +8,7 @@ export const Home: FunctionComponent = () => {
     setCount((prev) => prev + 1);
   };
   return <>
-    {/* React will locate the next <title> and <meta> elements and place them in the <head> */}
+    {/* React will locate the <title> and <meta> elements and place them in the <head> */}
     <title> App </title>
     <meta name='description' content='This is my home page'/>
     <div className='flex flex-col w-full min-h-screen divide-y divide-gray-700'>
