@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 
 export const reloadPlugin = (options = {}) => {
-  const { port = 3001 } = options;
+  const { port = 8000 } = options;
   const clients = new Set();
   const reload = () => {
     for (const res of clients) {

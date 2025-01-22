@@ -3,12 +3,16 @@ import { optimize } from 'svgo';
 /**
  * An esbuild plugin to transform SVG into React-compatible JSX.
  */
+
+function toCamelCase(kebabStr) {
+  return kebabStr.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+}
+
 export const svgPlugin = () => ({
   name: 'svg',
   setup(build) {
     const attrMap = {
-      'class': 'className',
-      'data-name': 'dataname'
+      'class': 'className'
     };
     // Intercept .svg files
     build.onLoad({ filter: /\.svg$/ }, async (args) => {
@@ -31,7 +35,12 @@ export const svgPlugin = () => ({
                     if (node.attributes) {
                       Object.keys(node.attributes).forEach((key) => {
                         if (attrMap.hasOwnProperty(key)) {
-                          node.attrMap[newKey] = node.attributes[key];
+                          node.attributes[attrMap[key]] = node.attributes[key];
+                          delete node.attributes[key];
+                        }
+                        if (key.includes('-')) {
+                          const newKey = toCamelCase(key);
+                          node.attributes[newKey] = node.attributes[key];
                           delete node.attributes[key];
                         }
                         // Convert namespaced attributes like `xmlns:xlink` to `xmlnsXlink`
@@ -53,8 +62,8 @@ export const svgPlugin = () => ({
       // Wrap the optimized SVG in a React component
       const jsxComponent = `export default (props) => (
           ${optimizedSvg.replace(/<svg (.*?)>/, (match, attrs) => {
-            return `<svg ${attrs} {...props}>`;
-          })}
+        return `<svg ${attrs} {...props}>`;
+      })}
         );`;
       return {
         contents: jsxComponent,

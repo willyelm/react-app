@@ -1,8 +1,8 @@
 import path from 'node:path';
-import postcssPlugin from './postcssPlugin.js';
-import svgPlugin from './svgPlugin.js';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
+import postcss from './plugins/postcss.js';
+import svg from './plugins/svg.js';
 // Working dir
 const workspace = process.cwd();
 // Server bundle configuration
@@ -19,7 +19,7 @@ export const serverConfig = {
   tsconfig: path.join(workspace, 'tsconfig.json'),
   outdir: path.join(workspace, 'dist'),
   plugins: [
-    svgPlugin()
+    svg()
   ]
 };
 
@@ -40,8 +40,8 @@ export const clientConfig = {
   outdir: path.join(workspace, 'dist', 'static'),    // Served as /static by express
   conditions: ['import'],
   plugins: [
-    svgPlugin(),
-    postcssPlugin({
+    svg(),
+    postcss({
       plugins: [
         tailwindcss(),
         autoprefixer
