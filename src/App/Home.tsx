@@ -18,19 +18,17 @@ export const Home: FunctionComponent = () => {
       </nav>
     </header>
 
-    <div className='flex flex-col w-full max-w-3xs mx-auto my-32 border border-gray-700'>
-      <div className="flex-auto flex flex-col items-center p-8 space-y-4">
-        <h1 className='mb-4'>
-          Counter
-        </h1>
-        <p className='text-4xl'>
-          {count}
-        </p>
-        <button className='px-4 py-2 bg-white text-black' onClick={() => update()}>
-          Increase
-        </button>
-      </div>
-    </div>
+    <main className='flex flex-col items-center max-w-3xs mx-auto my-32 border border-gray-700 p-8 space-y-4'>
+      <h1 className='mb-4'>
+        Counter
+      </h1>
+      <p className='text-4xl'>
+        {count}
+      </p>
+      <button className='px-4 py-2 bg-white text-black' onClick={() => update()}>
+        Increase
+      </button>
+    </main>
 
     <footer className='flex justify-center items-center space-x-4 px-8 py-4'>
       <span className='italic text-gray-500'>Built with </span>
