@@ -1,6 +1,5 @@
 import path from 'node:path';
-import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
+import tailwindcss from '@tailwindcss/postcss';
 import postcss from './plugins/postcss.js';
 import svg from './plugins/svg.js';
 // Working dir
@@ -45,8 +44,7 @@ export const clientConfig = {
     svg(),
     postcss({
       plugins: [
-        tailwindcss(),
-        autoprefixer
+        tailwindcss
       ]
     })
   ]
