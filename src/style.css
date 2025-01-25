@@ -9,11 +9,9 @@
   --color-foreground: #171717;
 }
 
-@variant dark {
-  @theme {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
-  }
+.dark {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
 }
 
 @layer base {
